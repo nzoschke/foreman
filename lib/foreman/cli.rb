@@ -15,6 +15,7 @@ class Foreman::CLI < Thor
   method_option :concurrency, :type => :string,  :aliases => "-c", :banner => '"alpha=5,bar=3"'
 
   def start(process=nil)
+    $stdout.sync = true
     check_procfile!
 
     if process
